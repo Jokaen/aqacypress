@@ -1,0 +1,15 @@
+{
+  "name": "aqa-hometasks",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "jokaen",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "cypress": "^14.5.2"
+  }
+}
