@@ -34,7 +34,7 @@ Cypress.Commands.overwrite('visit', (originalFn, url, ...args) => {
   })
 })
 
-Cypress.Commands.add('login', {prevSubject: false} ,(username = 'ezvoldstranger@gmail.com', password = 'Qwerty123') => {
+Cypress.Commands.add('login', {prevSubject: false} ,(username = Cypress.env('DEFAULT_USER_NAME'), password = Cypress.env('DEFAULT_USER_PASSWORD')) => {
   cy.visit('')
   cy.contains('button', 'Sign In').click();
   cy.get('[id="signinEmail"]').type(username);
