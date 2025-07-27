@@ -9,7 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cypress:run:prod": "TEST_ENVIRONMENT=prod cypress run --browser=chrome",
-    "cypress:run:test": "TEST_ENVIRONMENT=test cypress run --browser=chrome"
+    "cypress:run:test": "TEST_ENVIRONMENT=test cypress run --browser=chrome",
+    "cypress:open:prod": "TEST_ENVIRONMENT=prod cypress open --browser=chrome"
   },
   "devDependencies": {
     "cypress": "^14.5.2",

@@ -10,7 +10,7 @@ const getConfigFileObject = (env = 'prod') => {
 
 export default defineConfig({
   e2e: {
-    specPattern: 'cypress/e2e/hometask20/hometask20.cy.js',
+    specPattern: 'cypress/e2e/hometask21/',
     baseUrl: 'https://qauto.forstudy.space',
     reporter: "mochawesome",
     reporterOptions: {
