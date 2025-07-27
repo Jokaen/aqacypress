@@ -55,4 +55,36 @@ Cypress.Commands.overwrite('type', (originalFn, element, text, options) => {
   }
 
   return originalFn(element, text, options)
-})
+});
+
+Cypress.Commands.add('createExpense', ({ carId, mileage, liters, totalCost, forceMileage = false }) => {
+  const today = new Date().toISOString().split('T')[0];
+
+  cy.request({
+    method: 'POST',
+    url: '/api/expenses',
+    body: {
+      carId,
+      reportedAt: today,
+      mileage,
+      liters,
+      totalCost,
+      forceMileage
+    },
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then((response) => {
+    console.log('Response Expenses', response);
+
+    expect(response.status).to.eq(200); 
+    expect(response.body.status).to.eq('ok');
+
+    const expenseData = response.body.data;
+    expect(expenseData.carId).to.eq(carId);
+    expect(expenseData.reportedAt).to.eq(today);
+    expect(expenseData.mileage).to.eq(mileage);
+    expect(expenseData.liters).to.eq(liters);
+    expect(expenseData.totalCost).to.eq(totalCost);
+  });
+});
